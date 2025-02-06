@@ -2,7 +2,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Explorer from './Explorer';
 
-fuction App() {
+function App() {
   return (
     <div className="App">
       <Header />
