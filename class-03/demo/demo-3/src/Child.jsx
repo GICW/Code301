@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 
 function Child(props) {
 
-  function askParentFor10Dollars() {3
+  function askParentFor10Dollars() {
     props.askForMoney(10);
   }
 
