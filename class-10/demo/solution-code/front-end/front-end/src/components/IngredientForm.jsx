@@ -5,11 +5,11 @@ function IngredientForm(props) {
   const [ingredient, setIngredient] = useState('');
 
   async function getRecipes(event) {
-    event.preventDefault(); // Corrected: use "event" instead of "e"
+    event.preventDefault();
     const server = 'http://localhost:3001';
     try {
       const recipes = await axios.get(`${server}/recipes`, { params: { ingredient: ingredient } });
-      props.updateRecipes(recipes.data);
+      props.updateRecipes(recipes.data); // Spoonacular returns an array of recipes
     } catch (error) {
       console.error('Error fetching recipes:', error);
     }

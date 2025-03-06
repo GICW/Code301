@@ -2,13 +2,12 @@ import { useState } from 'react';
 import IngredientForm from './IngredientForm';
 import Recipe from './Recipe';
 
-function Recipes () {
-
+function Recipes() {
   const [recipes, setRecipes] = useState([]);
 
   function updateRecipes(newRecipes) {
     setRecipes(newRecipes);
-  };
+  }
 
   return (
     <>
@@ -19,7 +18,7 @@ function Recipes () {
         </div>
       ))}
     </>
-  )
+  );
 }
 
 export default Recipes;
