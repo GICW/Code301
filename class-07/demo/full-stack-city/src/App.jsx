@@ -27,19 +27,19 @@ function App() {
   // To demo this method, type `?type=supplies` or
   // `?type=food` in the url bar, after `localhost:3000/`
   // then click on the button to show the shopping list
-  async function getShoppingListFromQueryString() {
-    // grabs the query string from the url
-    const search = window.location.search;
-    // returns an object instance of URLSearchParams in order call the method .get
-    const params = new URLSearchParams(search);
-    // Returns the value of the parameter 'type' from the url
-    // so that we can pass it to axios
-    const listName = params.get('type');
+  // async function getShoppingListFromQueryString() {
+  //   // grabs the query string from the url
+  //   const search = window.location.search;
+  //   // returns an object instance of URLSearchParams in order call the method .get
+  //   const params = new URLSearchParams(search);
+  //   // Returns the value of the parameter 'type' from the url
+  //   // so that we can pass it to axios
+  //   const listName = params.get('type');
 
-    const API = 'http://localhost:3001';
-    const response = await axios.get(`${API}/shoppingList?type=${listName}`);
-    setShoppingList(response.data);
-  }
+  //   const API = 'http://localhost:3001';
+  //   const response = await axios.get(`${API}/shoppingList?type=${listName}`);
+  //   setShoppingList(response.data);
+  // }
 
   return (
     <>
@@ -47,7 +47,7 @@ function App() {
       <button onClick={getSupplies}>Get Supplies List Directly</button>
 
       {/* Optional --- only code this out if time allows */}
-      <button onClick={getShoppingListFromQueryString}>Get Shopping List via Browser Query String</button>
+      {/* <button onClick={getShoppingListFromQueryString}>Get Shopping List via Browser Query String</button> */}
 
       <ul>
         {shoppingList.length && shoppingList.map((item, idx) => (
