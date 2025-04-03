@@ -8,7 +8,7 @@ function Photos(props) {
         }
         <span>photo by: {photo.photographer} from unsplash</span>
       </div>
-    ))
+    ))// props have to be lowercase
   )
 }
 
