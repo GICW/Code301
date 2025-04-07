@@ -7,7 +7,7 @@ Let's consider the humble variable. While you've surely used variables extensive
 Behold a simple line of code:
 
 ```javascript
-let age = 37; // I'm 37, I'm not old!
+let age = 37; 
 ```
 
 What is happening here? How would you describe it in plain English to someone not familiar with programming?
