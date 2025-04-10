@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from 'axios';//axios ; fetching  data from backend, axios is our library to help us to do.
+//cors- cross origin ; fire walls 
+//express- framwork, same as react for front end
+//dotenv - hiddent flie
+
+//all the aboves are libraries 
 
 function Jobs() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
     async function getJobs() {
-      const API = 'http://localhost:3001';
+      const API = 'http://localhost:3001';//3001 usually the server hosting number; 
       const jobs = await axios.get(`${API}/jobs`);
       setJobs(jobs.data);
     } 

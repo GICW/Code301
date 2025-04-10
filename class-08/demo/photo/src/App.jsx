@@ -5,7 +5,7 @@ import axios from 'axios';
 import Photos from './Photos';
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');// [1,2] 1 is our default, 2 set whatever varialbe to be changed. thats why we use state, becuase useState is light swtich button, on / off 
   const [photos, setPhotos] = useState([]);
 
   function updateSearchQuery(event) {
@@ -14,7 +14,7 @@ function App() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-
+//good line to always have 
     try {
       const API = import.meta.env.VITE_API_URL;
       const url = `${API}/photos`;
@@ -35,7 +35,7 @@ function App() {
       </Form>
 
       {photos.length > 0 &&
-        <Photos
+        <Photos//this is for bringing in my component fie named "Photos"
           photos={photos}
           searchQuery={searchQuery}
         />
