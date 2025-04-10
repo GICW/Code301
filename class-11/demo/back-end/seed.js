@@ -8,10 +8,10 @@ const Cat = require('./models/cat');
 async function seed() {
   // seed the database with some cats, so I can retrieve them
   const myCat = new Cat({
-    name: 'Jimmy John',
+    name: 'Qilin Xie',
     color: 'orange',
     hasClaws: false,
-    location: 'Seattle',
+    location: 'Salem',
   });
   myCat.save(function (err) {
     if (err) console.error(err);
@@ -20,13 +20,13 @@ async function seed() {
 
   // alternately...
   await Cat.create({
-    name: 'Jersey  Mike',
+    name: 'Paul',
     color: 'calico',
     hasClaws: true,
-    location: 'Paris'
+    location: 'Silverton'
   });
 
-  console.log('saved Jersey Mike');
+  console.log('saved Paul');
 
   mongoose.disconnect();
 }
