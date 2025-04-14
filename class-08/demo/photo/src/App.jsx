@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
@@ -5,7 +6,9 @@ import axios from 'axios';
 import Photos from './Photos';
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState('');// [1,2] 1 is our default, 2 set whatever varialbe to be changed. thats why we use state, becuase useState is light swtich button, on / off 
+  const [searchQuery, setSearchQuery] = useState('');
+  // searchQuery is the default, setSachQuery the variable that will change based on the state turns on or fooff. The DEFAULT = on / set... will change to a new variable.
+  // useState is placeholder for what will happen when 'set' it to happen
   const [photos, setPhotos] = useState([]);
 
   function updateSearchQuery(event) {
@@ -14,11 +17,11 @@ function App() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-//good line to always have 
+// GOOD PRACTICE prevents anything to be triggered before the search
     try {
-      const API = import.meta.env.VITE_API_URL;
+      const API = import.meta.env.VITE_API_URL; 
       const url = `${API}/photos`;
-      const response = await axios.get(url, { params: { searchQuery: searchQuery } });
+      const response = await axios.get(url, { params: { searchQuery: searchQuery } }); //searchQuery is an keyword
       setPhotos(response.data);
     } catch (err) {
       console.error(err);
@@ -35,7 +38,7 @@ function App() {
       </Form>
 
       {photos.length > 0 &&
-        <Photos//this is for bringing in my component fie named "Photos"
+        <Photos // for bringing in the componenet file named Photos
           photos={photos}
           searchQuery={searchQuery}
         />
