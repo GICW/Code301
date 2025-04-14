@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-function CatForm({ onCreate }}) {
+function CatForm({ onCreate }) {
 
   const [name, setName] = useState('');
   const [color, setColor] = useState('');
@@ -13,7 +13,7 @@ function CatForm({ onCreate }}) {
     onCreate(this.state);
   };
 
-  functtion handleNameChange(event) {
+  function handleNameChange(event) {
     setName(event.target.value);
   };
 
