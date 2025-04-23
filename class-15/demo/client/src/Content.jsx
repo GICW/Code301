@@ -3,31 +3,30 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 
 function Content(props) {
-
   const [books, setBooks] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
+    const fetchBooks = async () => {
+      if (props.auth0.isAuthenticated) {
+        const res = await props.auth0.getIdTokenClaims();
+        const jwt = res.__raw;
 
-    if (props.auth0.isAuthenticated) {
+        const config = {
+          headers: { Authorization: `Bearer ${jwt}` },
+          method: 'get',
+          baseURL: import.meta.env.VITE_SERVER_URL,
+          url: '/books',
+        };
 
-      const res = await props.auth0.getIdTokenClaims();
-      const jwt = res.__raw;
-
-      const config = {
-        headers: { "Authorization": `Bearer ${jwt}` },
-        method: 'get',
-        baseURL: import.meta.env.VITE_SERVER_URL,
-        url: '/books'
+        const booksResponse = await axios(config);
+        setBooks(booksResponse.data);
       }
+    };
 
-      const booksResponse = await axios(config);
+    fetchBooks();
+  }, [props.auth0]);
 
-      setBooks(booksResponse.data);
-
-    }
-  }, []);
-
-  render() {
+  return (
     <>
       <h1>Books We Love</h1>
       <ul>
@@ -36,7 +35,7 @@ function Content(props) {
         ))}
       </ul>
     </>
-    )
-  }
+  );
+}
 
-  export default withAuth0(Content);
+export default withAuth0(Content);
