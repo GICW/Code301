@@ -12,7 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
- "@auth0/auth0-react": "github:auth0/auth0-react",
+    "@auth0/auth0-react": "^2.0.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "dotenv": "^16.3.1",
